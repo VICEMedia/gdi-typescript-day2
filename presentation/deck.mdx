@@ -1,0 +1,148 @@
+export { default as theme } from './theme';
+
+import { CodeSurfer } from 'mdx-deck-code-surfer';
+
+# Before we get started
+
+Make sure you have a recent version of Node.js (v8+) installed (we recommend using [NVM](https://github.com/creationix/nvm) to update to a recent version)
+
+Install [VS Code](https://code.visualstudio.com/) or a TypeScript Intellisense plugin for your favorite text editor.
+
+```bash
+$ git clone github.com/VICEMedia/gdi-typescript-day1
+$ cd gdi-typescript-day1/exercise
+```
+
+---
+
+# Your Instructors
+// TODO add Instructors
+
+---
+
+# Intro to TypeScript: Part 2
+
+<div>
+  <img
+    src="https://yourboulder.com/wp-content/uploads/2014/01/gdi_logo.jpg"
+    width="400px"
+  />
+  <br />
+  <img
+    src="https://vice-web-statics-cdn.vice.com/logos/vice_logo_black.svg"
+    width="300px"
+  />
+</div>
+
+---
+
+# Review
+
+// TODO add a fun gif
+
+```notes
+This is a timeboxed section during which we can briefly review anything the class is fuzzy on from day1
+Let's try to limit this to 10-15 mins, and anything beyond that can be discussed during guided practice
+```
+
+---
+
+# This lesson will cover
+
+* union types
+* generics
+* downloading type annotations using npm
+* defining React props & states using interfaces
+* extending interfaces
+* making a React app using TypeScript & TSX
+
+---
+
+# Union types
+
+```typescript
+interface Order {
+  amount: number;
+  color?: string;
+  type: 'sunflower' | 'tulip';
+}
+```
+
+---
+
+# Generics
+
+Generics are components that can work over a variety of types instead of just one.
+
+```typescript
+function identity<T>(arg: T): T {
+  return arg;
+}
+```
+
+Let's simplify our `createBouquet()` from the last lesson to use a generic
+
+---
+
+// TODO add an example of importing type annotations
+
+---
+
+# create-react-app
+
+```bash
+$ npm init react-app flowershop --typescript
+$ cd flowershop
+$ npm start
+```
+
+// TODO remove these notes
+we'll do this in the following order:
+1) make a blank OrderComponent with inputs
+2) give it an enum of available flowers to iterate through and render as selectable options
+3) give it a state to track user input
+4) give it a submit handler that calls a handle submit passed down by the parent component
+5) allow the students use our already existing createOrder function to create the order
+6) allow the students to work on their own to create a view of all of the purchased flowers
+
+---
+
+// TODO update the steps here
+
+<CodeSurfer
+  title='Props & State as interfaces'
+  code={require('!raw-loader!./snippets/props-state-example.tsx')}
+  lang='jsx'
+  steps={[
+    { notes: 'Let\'s modify the Order interface' },
+    { tokens: { 3: [1] }, notes: 'The "?" denotes a field that may be null or undefined' },
+  ]}
+/>
+
+---
+
+# Extends keyword
+
+Much like classes can extend other classes in JavaScript, interfaces can extend other interfaces.
+
+Extending interfaces can help keep type definitions DRY, and make components more reuseable.
+
+---
+
+// TODO add a Extending a class example
+
+---
+
+// TODO add a Extending an interface example
+
+---
+
+// TODO add a prompt
+
+---
+
+# Thanks for attending
+
+We really value your feedback! Please take a minute to fill out this form:
+
+http://bit.ly/GDI-NYC

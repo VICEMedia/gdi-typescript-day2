@@ -1,0 +1,17 @@
+{
+  "name": "presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mdx-deck": "^1.10.0",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "mdx-deck deck.mdx"
+  },
+  "author": "",
+  "license": "ISC"
+}
