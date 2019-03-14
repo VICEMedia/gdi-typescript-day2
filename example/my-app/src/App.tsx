@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { OrderComponent, FlowerType } from './OrderComponent';
+import { OrderComponent } from './OrderComponent';
 import { Vase } from './Vase';
-import { Flower, Rose, Tulip } from './flowers';
+import { FlowerType, Flower, Rose, Tulip } from './flowers';
 
 interface AppState {
   flowers: Flower[];

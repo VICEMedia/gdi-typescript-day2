@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Tulip, Rose } from './flowers';
-
-export type FlowerType = 'tulip' | 'rose';
+import { FlowerType } from './flowers';
 
 interface Order {
   type: FlowerType;

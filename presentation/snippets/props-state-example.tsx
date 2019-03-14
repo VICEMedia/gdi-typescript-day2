@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 
 interface OrderComponentProps {
 }
@@ -6,6 +6,6 @@ interface OrderComponentProps {
 interface OrderComponentState {
 }
 
-class OrderForm extends React.Component<OrderComponentProps, OrderComponentState> {
+class OrderForm extends Component<OrderComponentProps, OrderComponentState> {
   ...
 }

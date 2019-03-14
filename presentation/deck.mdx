@@ -9,8 +9,8 @@ Make sure you have a recent version of Node.js (v8+) installed (we recommend usi
 Install [VS Code](https://code.visualstudio.com/) or a TypeScript Intellisense plugin for your favorite text editor.
 
 ```bash
-$ git clone github.com/VICEMedia/gdi-typescript-day1
-$ cd gdi-typescript-day1/exercise
+$ git clone github.com/VICEMedia/gdi-typescript-day2
+$ cd gdi-typescript-day2/exercise
 ```
 
 ---
@@ -38,7 +38,10 @@ $ cd gdi-typescript-day1/exercise
 
 # Review
 
-// TODO add a fun gif
+<img
+  src="https://media2.giphy.com/media/TcG7Tw3uq6tJS/giphy.gif?cid=3640f6095c89d5b548754c37510d5c0c"
+  width="500px"
+/>
 
 ```notes
 This is a timeboxed section during which we can briefly review anything the class is fuzzy on from day1
@@ -51,9 +54,8 @@ Let's try to limit this to 10-15 mins, and anything beyond that can be discussed
 
 * union types
 * generics
-* downloading type annotations using npm
-* defining React props & states using interfaces
-* extending interfaces
+* class inheritance
+* React props & states using interfaces
 * making a React app using TypeScript & TSX
 
 ---
@@ -64,7 +66,7 @@ Let's try to limit this to 10-15 mins, and anything beyond that can be discussed
 interface Order {
   amount: number;
   color?: string;
-  type: 'sunflower' | 'tulip';
+  type: 'rose' | 'tulip';
 }
 ```
 
@@ -75,16 +77,46 @@ interface Order {
 Generics are components that can work over a variety of types instead of just one.
 
 ```typescript
-function identity<T>(arg: T): T {
-  return arg;
-}
+const flowers: Flower[] = [new Tulip('pink')];
+const flowers: Array<Flower> = [new Tulip('pink')];
 ```
 
 Let's simplify our `createBouquet()` from the last lesson to use a generic
 
 ---
 
-// TODO add an example of importing type annotations
+# Inheritance
+
+```typescript
+class Waterable {
+  ...
+}
+
+class Tulip extends Waterable {
+  ...
+}
+```
+
+We can DRY up our `water()` functions
+
+---
+
+# Extending interfaces
+
+Much like classes can extend other classes in JavaScript, interfaces can extend other interfaces.
+
+Extending interfaces can help keep type definitions DRY, and make components more reuseable.
+
+```typescript
+interface ThornyFlower extends Flower {
+  thorns: number;
+}
+```
+
+---
+
+# Let's make a react app!
+<img src="https://media3.giphy.com/media/xUPGcxJifn7dEpmqcg/giphy.gif?cid=3640f6095c89dbd36a2e414145fa8536"/>
 
 ---
 
@@ -96,44 +128,28 @@ $ cd flowershop
 $ npm start
 ```
 
-// TODO remove these notes
+```notes
 we'll do this in the following order:
 1) make a blank OrderComponent with inputs
-2) give it an enum of available flowers to iterate through and render as selectable options
+2) create select options that map to a union type
 3) give it a state to track user input
 4) give it a submit handler that calls a handle submit passed down by the parent component
 5) allow the students use our already existing createOrder function to create the order
 6) allow the students to work on their own to create a view of all of the purchased flowers
+```
 
 ---
-
-// TODO update the steps here
 
 <CodeSurfer
   title='Props & State as interfaces'
   code={require('!raw-loader!./snippets/props-state-example.tsx')}
   lang='jsx'
   steps={[
-    { notes: 'Let\'s modify the Order interface' },
-    { tokens: { 3: [1] }, notes: 'The "?" denotes a field that may be null or undefined' },
+    {},
+    { lines: [9], notes: 'Let\'s take a closer look at a React.Component class in TypeScript' },
+    { tokens: { 9: [8, 9, 10, 11, 12] }, notes: 'Where did we learn this syntax?' },
   ]}
 />
-
----
-
-# Extends keyword
-
-Much like classes can extend other classes in JavaScript, interfaces can extend other interfaces.
-
-Extending interfaces can help keep type definitions DRY, and make components more reuseable.
-
----
-
-// TODO add a Extending a class example
-
----
-
-// TODO add a Extending an interface example
 
 ---
 

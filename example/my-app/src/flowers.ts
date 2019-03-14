@@ -1,9 +1,12 @@
+export type FlowerType = 'tulip' | 'rose';
+
 export interface Flower {
   petals: number;
   height: number;
   color: string;
   fragrence: boolean;
   water: (ml: number) => void;
+  growthRate: number;
 }
 
 export interface Order<T> {
@@ -12,33 +15,41 @@ export interface Order<T> {
   color: string;
 }
 
-export class Rose implements Flower {
-  petals = 5;
-  height = 0;
-  color: string;
-  fragrence = true;
+interface ThornyFlower extends Flower {
+  thorns: number;
+}
 
-  constructor(color: string) {
-    this.color = color;
-  }
+class Waterable {
+  growthRate = 50;
+  height = 0;
 
   water = (ml: number) => {
-    this.height += ml / 200;
+    this.height += ml / this.growthRate;
   }
 }
 
-export class Tulip implements Flower {
-  petals = 6;
-  height = 0;
+export class Rose extends Waterable implements ThornyFlower {
+  petals = 5;
   color: string;
   fragrence = true;
+  growthRate = 200;
+  thorns = 12;
 
   constructor(color: string) {
+    super();
     this.color = color;
   }
+}
 
-  water = (ml: number) => {
-    this.height += ml / 100;
+export class Tulip extends Waterable implements Flower {
+  petals = 6;
+  color: string;
+  fragrence = true;
+  growthRate = 100;
+
+  constructor(color: string) {
+    super();
+    this.color = color;
   }
 }
 
@@ -57,5 +68,3 @@ const bouquet = createBouquet({
   amount: 3,
   color: 'pink',
 });
-
-console.log(bouquet);
