@@ -16,7 +16,12 @@ $ cd gdi-typescript-day2/exercise
 ---
 
 # Your Instructors
-// TODO add Instructors
+
+Paul Fielek
+
+Isaac Torres
+
+Des Saraph
 
 ---
 
@@ -74,14 +79,14 @@ interface Order {
 
 # Generics
 
-Generics are components that can work over a variety of types instead of just one.
+Generics allow us to use classes or interfaces as arguments.
+
+That means a component can work over a variety of types instead of just one.
 
 ```typescript
 const flowers: Flower[] = [new Tulip('pink')];
 const flowers: Array<Flower> = [new Tulip('pink')];
 ```
-
-Let's simplify our `createBouquet()` from the last lesson to use a generic
 
 ---
 
@@ -134,7 +139,7 @@ we'll do this in the following order:
 2) create select options that map to a union type
 3) give it a state to track user input
 4) give it a submit handler that calls a handle submit passed down by the parent component
-5) allow the students use our already existing createOrder function to create the order
+5) allow the students to use our already existing createOrder function to create the order
 6) allow the students to work on their own to create a view of all of the purchased flowers
 ```
 
@@ -153,7 +158,14 @@ we'll do this in the following order:
 
 ---
 
-// TODO add a prompt
+# Let's make a React flowershop
+* use the `createOrder()` we wrote last time to allow the user to order flowers
+* update your `Vase` component to display any flowers the user orders
+
+**BONUS**
+
+* Modify your `createOrder()` to use a [generic](https://www.typescriptlang.org/docs/handbook/generics.html) in order to determine the class of a flowers
+  * _Note:_ your `<select>`s will still have `string` value types that you'll need to map to the correct flower class
 
 ---
 
