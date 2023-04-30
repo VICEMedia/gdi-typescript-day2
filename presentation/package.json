@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "mdx-deck": "^1.10.0",
+    "mdx-deck": "^4.1.1",
     "mdx-deck-code-surfer": "^0.5.5",
     "raw-loader": "^1.0.0"
   },
